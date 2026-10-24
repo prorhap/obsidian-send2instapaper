@@ -74,3 +74,7 @@ On 2026-10-24, GitHub Actions run `40089857304` successfully built tag `0.1.3` f
 The published release contains exactly `main.js`, `manifest.json`, and `styles.css`. All three were downloaded separately after publication; their GitHub asset SHA-256 digests matched, and `gh attestation verify --repo prorhap/obsidian-send2instapaper` passed for each downloaded file. The downloaded manifest identifies version 0.1.3 with ID `send-to-instapaper`. Its historical display name is not the current source display name.
 
 This verifies published provenance, not community-review approval or the pending in-app/manual checks. Earlier release review results remain historical and do not describe the new artifact set.
+
+## Version 0.1.4 release verification
+
+GitHub Actions run 40091807052 published version 0.1.4 from commit 70db4c896faf97a7ca0f1197520e34599d16d005. All 41 tests and the build passed. The three downloaded release assets matched their published SHA-256 digests and independently verified GitHub attestations. The downloaded manifest identifies Send to Instapaper, ID `send-to-instapaper`, version 0.1.4. The release assets were checked for obsolete branding.
