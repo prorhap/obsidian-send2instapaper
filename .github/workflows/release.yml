@@ -63,4 +63,4 @@ jobs:
           done
           gh release create "$RELEASE_TAG" main.js manifest.json styles.css \
             --repo "$GITHUB_REPOSITORY" --verify-tag \
-            --title "Paperlane $RELEASE_TAG" --notes-file docs/release-notes.md
+            --title "Send to Instapaper $RELEASE_TAG" --notes-file docs/release-notes.md

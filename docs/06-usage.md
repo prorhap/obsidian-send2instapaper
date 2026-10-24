@@ -7,7 +7,7 @@ This build targets macOS desktop and requires Obsidian 1.11.4 or later. The dire
 1. Download `main.js`, `manifest.json`, and `styles.css` from the same GitHub release.
 2. Put the files in your vault's `.obsidian/plugins/send-to-instapaper/` directory, preserving existing `data.json`.
 3. Restart Obsidian.
-4. Enable **Paperlane** under **Settings → Community plugins**.
+4. Enable **Send to Instapaper** under **Settings → Community plugins**.
 
 Alternatively, build a local installation ZIP with `npm ci` followed by `npm run package`. Published releases intentionally contain only the three files Obsidian installs; full license notices are embedded in `main.js`. The build does not install itself in a vault or modify another plugin's settings.
 
@@ -17,7 +17,7 @@ The current interface uses Korean labels. This English guide describes controls 
 
 Version 0.1.1 changes the plugin ID from `send2instapaper` to `send-to-instapaper` because directory IDs permit only lowercase letters and hyphens. If you manually installed 0.1.0, disable it first. With Obsidian closed, back up and rename its plugin directory to `send-to-instapaper`, then replace the shipped files with the new package while retaining your existing `data.json`. Restart and enable the new plugin. Reassign custom hotkeys because the command prefix has changed. Do not enable both IDs at once.
 
-Version 0.1.2 renames the displayed plugin to **Paperlane** while retaining the `send-to-instapaper` ID, settings, transfer history, and command IDs from 0.1.1. New HTML exports go into `Paperlane Exports`; existing export files are not moved or deleted.
+Version 0.1.2 renames the displayed plugin to **Send to Instapaper** while retaining the `send-to-instapaper` ID, settings, transfer history, and command IDs from 0.1.1. New HTML exports go into `Send to Instapaper Exports`; existing export files are not moved or deleted.
 
 ## Generate a personal token
 
@@ -109,7 +109,7 @@ For an uncertain result, open history and run its result-check action. After a r
 
 ## Export reading HTML
 
-Use the preview's HTML-export action to create a file under `Paperlane Exports` in the vault. It works without an Instapaper account.
+Use the preview's HTML-export action to create a file under `Send to Instapaper Exports` in the vault. It works without an Instapaper account.
 
 The export includes reading styles and embedded local images. Remote images retain URLs and may contact their hosts when the file is opened. Scripts are removed; interactive source-page behavior is not reproduced.
 

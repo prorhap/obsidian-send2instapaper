@@ -1,4 +1,6 @@
-# Paperlane
+# Send to Instapaper
+
+This is a discontinued experimental project. Historical release files can differ from the current source.
 
 Send Markdown and HTML files from your Obsidian vault to your personal Instapaper account as readable articles, with embedded local images and checks for missing content.
 
@@ -21,7 +23,7 @@ No LLM, image-hosting server, or email automation is required. Source notes are 
 1. Download `main.js`, `manifest.json`, and `styles.css` from the matching GitHub release.
 2. Create `<vault>/.obsidian/plugins/send-to-instapaper/`.
 3. Copy the three files into that directory, preserving existing `data.json` when upgrading.
-4. Restart Obsidian and enable **Paperlane** under **Settings → Community plugins**.
+4. Restart Obsidian and enable **Send to Instapaper** under **Settings → Community plugins**.
 
 The published release contains only the three files Obsidian installs. Project and dependency license notices are embedded in `main.js`. A local ZIP with separate notices can still be built with `npm run package`. Do not place credentials inside the plugin directory. Use a test vault for development.
 

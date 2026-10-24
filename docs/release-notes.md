@@ -1,4 +1,4 @@
-# Paperlane 0.1.3
+# Send to Instapaper 0.1.3
 
 - Browse one vault folder at a time instead of enumerating every vault file.
 - Validate the README title against the manifest name during builds.

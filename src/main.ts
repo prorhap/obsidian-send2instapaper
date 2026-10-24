@@ -18,7 +18,7 @@ const label: Record<Job["status"], string> = { submitting: "전송 중", unknown
   verified: "본문과 그림 참조 확인", warning: "저장됨 · 확인 필요", failed: "전송 실패" };
 const message = (e: unknown) => e instanceof Error ? e.message : "작업을 완료하지 못했습니다.";
 
-export default class Paperlane extends Plugin {
+export default class SendToInstapaper extends Plugin {
   data: PluginData = defaults();
   coordinator!: SendCoordinator;
   connection?: Account;
@@ -31,8 +31,8 @@ export default class Paperlane extends Plugin {
       if (x.schema !== 1 || !x.settings || typeof x.settings.secretId !== "string" || !Array.isArray(x.jobs)
         || x.jobs.some(j => !j || typeof j.id !== "string" || !Number.isSafeInteger(j.accountId)
           || typeof j.path !== "string" || typeof j.hash !== "string" || !Array.isArray(j.notes) || !(j.status in label))) {
-        new Notice("Paperlane 이력 형식이 올바르지 않습니다. 파일을 보존하고 플러그인 로드를 중단했습니다.", 10000);
-        throw new Error("Invalid Paperlane journal");
+        new Notice("Send to Instapaper 이력 형식이 올바르지 않습니다. 파일을 보존하고 플러그인 로드를 중단했습니다.", 10000);
+        throw new Error("Invalid Send to Instapaper journal");
       }
       this.data = x;
       this.data.settings.credentialSource ??= "secret-storage";
@@ -129,7 +129,7 @@ export default class Paperlane extends Plugin {
     } catch (e) { new Notice(message(e), 8000); }
   }
   async export(article: Article): Promise<string> {
-    const folder = "Paperlane Exports";
+    const folder = "Send to Instapaper Exports";
     if (!this.app.vault.getAbstractFileByPath(folder)) await this.app.vault.createFolder(folder);
     const destination = this.app.vault.getFolderByPath(folder);
     if (!destination) throw new Error("내보내기 폴더를 확인하세요.");
@@ -142,7 +142,7 @@ export default class Paperlane extends Plugin {
 }
 
 class FilePicker extends FuzzySuggestModal<TFile | TFolder> {
-  constructor(app: App, private plugin: Paperlane, private folder: TFolder = app.vault.getRoot()) {
+  constructor(app: App, private plugin: SendToInstapaper, private folder: TFolder = app.vault.getRoot()) {
     super(app);
     this.setPlaceholder(`${folder.path || "/"} — 폴더 또는 Markdown/HTML 파일 선택`);
   }
@@ -164,7 +164,7 @@ class FilePicker extends FuzzySuggestModal<TFile | TFolder> {
 }
 
 class SendSettings extends PluginSettingTab {
-  constructor(app: App, private plugin: Paperlane) { super(app, plugin); }
+  constructor(app: App, private plugin: SendToInstapaper) { super(app, plugin); }
   display(): void {
     const { containerEl: el } = this; el.empty();
     el.createEl("p", { text: "본인 Instapaper 애플리케이션에서 Generate access token으로 발급한 토큰을 사용합니다. 토큰을 노트나 채팅에 붙여넣지 마세요." });
@@ -255,7 +255,7 @@ class PreviewModal extends Modal {
   private sending = false;
   private accountId?: number;
   private folderId?: number;
-  constructor(app: App, private plugin: Paperlane, private source: Source) {
+  constructor(app: App, private plugin: SendToInstapaper, private source: Source) {
     super(app); this.accountId = plugin.connection?.id; this.folderId = plugin.data.settings.folderId;
   }
   onOpen(): void { this.modalEl.addClass("s2r-modal"); void this.rebuild(); }
@@ -278,7 +278,7 @@ class PreviewModal extends Modal {
   }
   private render(): void {
     const article = this.article!; const el = this.contentEl; el.empty();
-    el.createEl("p", { text: "PAPERLANE / 읽기용 사본", cls: "s2r-kicker" });
+    el.createEl("p", { text: "SEND TO INSTAPAPER / 읽기용 사본", cls: "s2r-kicker" });
     el.createEl("h2", { text: "Instapaper로 보내기" });
     el.createEl("p", { text: `${this.source.path} · ${this.plugin.connection?.username || "계정 연결 전"}`, cls: "s2r-muted" });
     new Setting(el).setName("제목").addText(t => t.setValue(article.title).onChange(v => { this.title = v; }));
@@ -352,7 +352,7 @@ class PreviewModal extends Modal {
 }
 
 class HistoryModal extends Modal {
-  constructor(app: App, private plugin: Paperlane) { super(app); }
+  constructor(app: App, private plugin: SendToInstapaper) { super(app); }
   onOpen(): void { this.render(); }
   private render(): void {
     this.contentEl.empty(); this.contentEl.createEl("h2", { text: "전송 이력" });

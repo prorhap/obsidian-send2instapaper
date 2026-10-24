@@ -2,7 +2,7 @@
 
 ## README title mismatch
 
-Version 0.1.1 used Send2Reader for Instapaper in both its tagged README and manifest. Version 0.1.2 uses Paperlane in both. The directory was still showing the older manifest during the rename. Refresh/review the matching release instead of reverting the name. Starting in 0.1.3, the build fails if the README heading and manifest name differ.
+Version 0.1.1 used Send2Reader for Instapaper in both its tagged README and manifest. Version 0.1.2 uses Send to Instapaper in both. The directory was still showing the older manifest during the rename. Refresh/review the matching release instead of reverting the name. Starting in 0.1.3, the build fails if the README heading and manifest name differ.
 
 ## Direct filesystem access
 

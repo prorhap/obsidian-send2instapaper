@@ -6,7 +6,7 @@ import { join } from "node:path";
 import { assertVaultPath } from "../src/vault-boundary";
 
 test("vault boundary resolves links and rejects external sources and export folders", async () => {
-  const fixture = await mkdtemp(join(tmpdir(), "paperlane-boundary-"));
+  const fixture = await mkdtemp(join(tmpdir(), "send-to-instapaper-boundary-"));
   try {
     const vault = join(fixture, "vault");
     const outside = join(fixture, "vault-other");
@@ -17,14 +17,14 @@ test("vault boundary resolves links and rejects external sources and export fold
     await writeFile(join(outside, "private.md"), "outside");
     await symlink(join(vault, "note.md"), join(vault, "inside-link.md"));
     await symlink(join(outside, "private.md"), join(vault, "external-link.md"));
-    await symlink(outside, join(vault, "Paperlane Exports"));
+    await symlink(outside, join(vault, "Send to Instapaper Exports"));
     await symlink(vault, join(fixture, "vault-alias"));
 
     for (const path of ["note.md", "..valid.md", "inside-link.md"]) {
       await assertVaultPath(vault, path);
     }
     await assertVaultPath(join(fixture, "vault-alias"), "note.md");
-    for (const path of ["external-link.md", "Paperlane Exports", "../vault-other/private.md"]) {
+    for (const path of ["external-link.md", "Send to Instapaper Exports", "../vault-other/private.md"]) {
       await assert.rejects(assertVaultPath(vault, path), /볼트 밖/);
     }
     await assert.rejects(assertVaultPath(vault, join(outside, "private.md")), /잘못된/);

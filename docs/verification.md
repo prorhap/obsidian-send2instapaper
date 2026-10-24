@@ -53,9 +53,9 @@ The automated suite uses mock transports. The earlier live account test used a s
 
 Install the package in a test vault, verify both credential methods and preview image retention, then send representative Markdown and HTML documents and inspect the target reading client offline. Record actual results before changing any pending item to passed.
 
-## Paperlane rename
+## Send to Instapaper rename
 
-Version 0.1.2 changes the display name, preview branding, export footer, and new export folder to Paperlane. The existing plugin ID and recovery markers remain unchanged. The 39-test suite, manifest validation, TypeScript check, and package build are rerun for this release. Existing live-service evidence and pending manual checks retain their original scope.
+Version 0.1.2 changes the display name, preview branding, export footer, and new export folder to Send to Instapaper. The existing plugin ID and recovery markers remain unchanged. The 39-test suite, manifest validation, TypeScript check, and package build are rerun for this release. Existing live-service evidence and pending manual checks retain their original scope.
 
 ## Directory-review improvements in 0.1.3
 
@@ -63,7 +63,7 @@ Local verification: 41 tests passed, including temporary-filesystem symlink chec
 
 The file picker now inspects one folder's immediate children instead of calling whole-vault enumeration APIs. Its in-app navigation still needs manual validation. Runtime Node filesystem usage is restricted to `realpath` metadata resolution; the automated generic filesystem warning may remain. External export directories are now rejected in addition to external source files.
 
-Both the 0.1.1 and 0.1.2 tagged READMEs matched their respective tagged manifests. The directory displayed the older 0.1.1 name during the Paperlane update, so mixed review inputs are a possible explanation of the title warning. This is not proof of the reviewer's internal implementation. Build validation now requires the current README heading to match the current manifest exactly.
+Both the 0.1.1 and 0.1.2 tagged READMEs matched their respective tagged manifests. The directory displayed the older 0.1.1 name during the Send to Instapaper update, so mixed review inputs are a possible explanation of the title warning. This is not proof of the reviewer's internal implementation. Build validation now requires the current README heading to match the current manifest exactly.
 
 The release workflow builds tagged source on GitHub Actions, attests the three supported release files, verifies those attestations, and publishes them without extra attachments. Successful hosted execution and downloadable provenance must be verified separately from local workflow validation.
 
@@ -71,6 +71,6 @@ The release workflow builds tagged source on GitHub Actions, attests the three s
 
 On 2026-10-24, GitHub Actions run `40089857304` successfully built tag `0.1.3` from commit `324bab4045415de4499aa1b9750ed70a436124a2`. Tests, the build, artifact attestation generation, attestation verification, and release publication all passed.
 
-The published release contains exactly `main.js`, `manifest.json`, and `styles.css`. All three were downloaded separately after publication; their GitHub asset SHA-256 digests matched, and `gh attestation verify --repo prorhap/obsidian-send2instapaper` passed for each downloaded file. The downloaded manifest identifies Paperlane 0.1.3 with ID `send-to-instapaper`.
+The published release contains exactly `main.js`, `manifest.json`, and `styles.css`. All three were downloaded separately after publication; their GitHub asset SHA-256 digests matched, and `gh attestation verify --repo prorhap/obsidian-send2instapaper` passed for each downloaded file. The downloaded manifest identifies version 0.1.3 with ID `send-to-instapaper`. Its historical display name is not the current source display name.
 
 This verifies published provenance, not community-review approval or the pending in-app/manual checks. Earlier release review results remain historical and do not describe the new artifact set.

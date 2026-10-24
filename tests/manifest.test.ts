@@ -6,7 +6,7 @@ import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 
 test("release validation rejects mixed README names, invalid IDs, and mismatched tags", async () => {
-  const fixture = await mkdtemp(join(tmpdir(), "paperlane-manifest-"));
+  const fixture = await mkdtemp(join(tmpdir(), "send-to-instapaper-manifest-"));
   const script = resolve("scripts/validate-manifest.mjs");
   try {
     for (const name of ["manifest.json", "package.json", "package-lock.json", "versions.json", "README.md"]) {
