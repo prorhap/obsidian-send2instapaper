@@ -4,7 +4,7 @@ This is a discontinued experimental project. Historical release files can differ
 
 Send Markdown and HTML files from your Obsidian vault to your personal Instapaper account as readable articles, with embedded local images and checks for missing content.
 
-This is an independent community plugin project, not an official Obsidian or Instapaper product. **Version 0.1.3 is a development build. The directory entry has been submitted, and automated review is still in progress.** It targets desktop Obsidian 1.11.4 or later, with macOS as the initial validation platform. Installation and end-to-end testing inside Obsidian are still pending.
+This is an independent community plugin project, not an official Obsidian or Instapaper product. **Version 0.1.4 is a development build. The directory entry has been submitted, and automated review is still in progress.** It targets desktop Obsidian 1.11.4 or later, with macOS as the initial validation platform. Installation and end-to-end testing inside Obsidian are still pending.
 
 ## Features
 

@@ -1,11 +1,7 @@
-# Send to Instapaper 0.1.3
+# Send to Instapaper 0.1.4
 
-- Browse one vault folder at a time instead of enumerating every vault file.
-- Validate the README title against the manifest name during builds.
-- Resolve local filesystem paths only to reject sources and export destinations outside the vault; actual file contents use the Vault API.
-- Build and attest release files in GitHub Actions, then publish only main.js, manifest.json, and styles.css.
-- Include the project and dependency license notices inside main.js.
+- Use the standalone Send to Instapaper name consistently in the manifest, interface, exported HTML, and documentation.
+- Retain the `send-to-instapaper` plugin ID and existing settings and transfer history.
+- Publish matching manifest and bundle assets with verified build provenance.
 
-The plugin ID remains send-to-instapaper. Existing settings and transfer history are preserved. The interface currently uses Korean labels.
-
-Local conversion and workflow tests do not establish end-to-end Obsidian or mobile/offline compatibility. Refer to the validation record for completed checks and remaining manual checks.
+This discontinued experimental project requires desktop Obsidian 1.11.4 or later. No new compatibility claims are made. Historical releases can differ from the current source.
